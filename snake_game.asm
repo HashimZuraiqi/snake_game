@@ -124,6 +124,7 @@
     
     main_loop:
         ; here we will put the user input to determine the movement location of the sanke
+        mov si, 0
         mov ah, 1
         int 16h
         jz no_key
@@ -173,19 +174,19 @@
     
     left_direction:
         mov direction, 2
-        jmp main_loop   
+        jmp no_key   
         
     right_direction:
         mov direction, 0
-        jmp main_loop   
+        jmp no_key   
         
     down_direction:
         mov direction, 1 
-        jmp main_loop
+        jmp no_key
         
     up_direction:
         mov direction, 3
-        jmp main_loop
+        jmp no_key
         
     right:
         add snake_x[si], 1
